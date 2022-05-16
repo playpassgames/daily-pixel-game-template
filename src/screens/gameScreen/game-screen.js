@@ -15,7 +15,7 @@ template.addEventListener(
             showScreen("#help-screen");
         }        
         
-        const image = template.querySelector(`#test-image`);
+        const image = template.querySelector(`#game-image`);
         image.src = `../../../content/images/${state.getCurrentAnswerPictureTitle()}`;
 
         const guessInput = template.querySelector("auto-complete");

@@ -5,6 +5,7 @@ import "./boilerplate/header.js";
 import "./boilerplate/screens";
 
 import "./components/autocomplete-element";
+import "./components/pixelated-img-element";
 
 import "./screens/gameScreen/game-screen";
 import "./screens/resultsScreen/results-screen";

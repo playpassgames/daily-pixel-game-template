@@ -9,7 +9,9 @@
     "lint": "eslint --fix src"
   },
   "dependencies": {
-    "playpass": "^1.2.1"
+    "image-pixels": "^2.2.2",
+    "playpass": "^1.2.1",
+    "stackblur-canvas": "^2.5.0"
   },
   "devDependencies": {
     "eslint": "^8.11.0",
