@@ -13,18 +13,10 @@ template.addEventListener(
         if (!sawTutorial) {
             playpass.storage.set("sawTutorial", true);
             showScreen("#help-screen");
-        }
-
-        // Update hint images
-        const answerSlug = state.getCurrentAnswer()
-            .replace(/[^A-Za-z0-9]/g, "-") // Replace non-alpha with hyphens
-            .replace(/-+/g, "-") // Reduce repeat runs of hyphens
-            .replace(/(^-|-$)/g, "") // Trim leading and trailing hyphens
-            .toLowerCase();
-        for (let ii = 0; ii < state.attempts; ++ii) {
-            const image = template.querySelector(`#image-hint${ii+1}`);
-            image.src = `../../../content/images/${answerSlug}-${ii+1}.jpg`;
-        }
+        }        
+        
+        const image = template.querySelector(`#test-image`);
+        image.src = `../../../content/images/${state.getCurrentAnswerPictureTitle()}`;
 
         const guessInput = template.querySelector("auto-complete");
         guessInput.choices = choices;
@@ -63,15 +55,4 @@ function updatePlayingScreen () {
 
     const remaining = state.attempts - state.store.guesses.length;
     template.querySelector("#guessesRemaining").textContent = remaining + " guesses remaining";
-
-    for (let ii = 0; ii < state.store.guesses.length; ++ii) {
-        const guess = document.createElement("p");
-        guess.id = `#guess${ii+1}`; 
-        guess.textContent = "❌ "+ state.store.guesses[ii];    
-        template.querySelector(`#guesses`).appendChild(guess)        
-        template.querySelector(`.tab-button${ii+2}`).style.display = "inline-block";
-    }
-
-    // Go to the most recent hint image tab
-    template.querySelector(`.tab-button${state.store.guesses.length+1}`).click();
 }

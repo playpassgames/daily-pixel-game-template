@@ -21,45 +21,22 @@
     </div>
 
     <div id="game-screen" slot="screen">
-      <input class="tab-button tab-button1" type="radio" name="tabs" checked />
-      <input class="tab-button tab-button2" type="radio" name="tabs" />
-      <input class="tab-button tab-button3" type="radio" name="tabs" />
-      <input class="tab-button tab-button4" type="radio" name="tabs" />
-      <input class="tab-button tab-button5" type="radio" name="tabs" />
-      <input class="tab-button tab-button6" type="radio" name="tabs" />
-
-      <div class="tab tab-page1">
-        <img id="image-hint1"/>
-      </div>
-      <div class="tab tab-page2">
-        <img id="image-hint2"/>
-      </div>
-      <div class="tab tab-page3">
-        <img id="image-hint3"/>
-      </div>
-      <div class="tab tab-page4">
-        <img id="image-hint4"/>
-      </div>
-      <div class="tab tab-page5">
-        <img id="image-hint5"/>
-      </div>
-      <div class="tab tab-page6">
-        <img id="image-hint6"/>
-      </div>
+      <img id="test-image" />
+      <pixelated-img></pixelated-img>
 
       <p>
         <form autocomplete="off">
-            <auto-complete placeholder="Guess the city"></auto-complete>
+            <auto-complete placeholder="Guess the landmark"></auto-complete>
             <button type="submit">OK</button>
          </form>
       </p>
     
-      <h4 id="guessesRemaining">6 guesses remaining</h4>
+      <h4 id="guessesRemaining">5 guesses remaining</h4>
       <div id="guesses"></div>
     </div>
 
     <div id="results-screen" slot="screen">
-      <p>Today's city was...</p>
+      <p>Today's landmark was...</p>
       <h1 id="resultLine1">New York, NY</h1>
       <h2 id="resultLine2">Good job!</h2>
       <button name="share">🗨️ Share</button>
@@ -67,9 +44,9 @@
     </div>
 
     <div id="help-screen" slot="screen">
-      <h2>Welcome to Daily City!</h2>
+      <h2>Welcome to Daily Landmark!</h2>
       <p>This is an example of how to use the Playpass SDK to build a simple daily level game.</p>
-      <p>Each day, try to guess the city in the pictures!</p>
+      <p>Each day, try to guess the landmark in the pictures!</p>
       <button name="back">Continue</button>
 
       <a class="fork-ribbon" href="https://github.com/playpassgames/playpass-game-template" target="_blank">Fork with Playpass</a>

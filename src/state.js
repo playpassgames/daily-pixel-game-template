@@ -5,7 +5,7 @@ import DailyModel from "./models/dailyModel";
 
 import { choices } from "../content/autocomplete.json";
 
-const MAX_ATTEMPTS = 6;
+const MAX_ATTEMPTS = 5;
 
 const state = new State(
     "daily",
@@ -30,6 +30,9 @@ export default {
     },
     isDone() {
         return this.store.guesses.length >= this.attempts || this.isSolved();
+    },
+    getCurrentAnswerPictureTitle() {
+        return this.store.day % choices.length + '.jpg';
     },
     getCurrentAnswer() {
         const word = this.correctAnswer;
