@@ -11,7 +11,17 @@ export class PixelatedImage extends HTMLElement {
         this.innerHTML = template;
 
         const image = this.querySelector("img[name=answerImage]");
-        image.src = `../../content/images/0.jpg`;
+        let pixelatedElement = this;
+
+        let observer = new MutationObserver(function(changes) {
+            changes.forEach(change => {
+                if (change.attributeName.includes("src")) {
+                    image.src = pixelatedElement.getAttribute("src");
+                }
+            });
+        });
+
+        observer.observe(this, {attributes : true});
     }
 }
 

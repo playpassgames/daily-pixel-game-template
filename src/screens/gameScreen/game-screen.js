@@ -16,7 +16,7 @@ template.addEventListener(
         }        
         
         const image = template.querySelector(`#game-image`);
-        image.src = `../../../content/images/${state.getCurrentAnswerPictureTitle()}`;
+        image.setAttribute("src", `../../../content/images/${state.getCurrentAnswerPictureTitle()}`);
 
         const guessInput = template.querySelector("auto-complete");
         guessInput.choices = choices;
