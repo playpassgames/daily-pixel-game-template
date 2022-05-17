@@ -2,14 +2,14 @@
 
 This is an example of how to use the Playpass SDK to build a simple daily level game.
 
-Preview: https://daily-city.playpass.games/
+Preview: https://daily-landmarks.playpass.games
 
 ## Setup
 
 Clone this template by running:
 
 ```shell
-playpass create --template playpassgames/daily-image-game-template
+playpass create --template playpassgames/daily-pixel-game-template
 ```
 
 For more info about using Playpass, see the [quickstart guide](https://docs.playpass.games/).
