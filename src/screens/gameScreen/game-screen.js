@@ -4,6 +4,7 @@ import state from "../../state";
 
 import { choices } from "../../../content/autocomplete.json";
 
+const STARTING_BLUR = 40;
 const template = document.querySelector("#game-screen");
 template.addEventListener(
     "active",
@@ -15,8 +16,8 @@ template.addEventListener(
             showScreen("#help-screen");
         }        
         
-        const image = template.querySelector(`#game-image`);
-        image.setAttribute("src", `../../../content/images/${state.getCurrentAnswerPictureTitle()}`);
+        const pixelImage = template.querySelector(`#game-image`);
+        pixelImage.setAttribute("src", `../../../content/images/${state.getCurrentAnswerPictureTitle()}`);
 
         const guessInput = template.querySelector("auto-complete");
         guessInput.choices = choices;
@@ -47,6 +48,7 @@ template.addEventListener(
             return;
         }
 
+        updatePlayingScreen();
     }),
 );
 
@@ -54,5 +56,9 @@ function updatePlayingScreen () {
     template.querySelector(`#guesses`).innerHTML = "";
 
     const remaining = state.attempts - state.store.guesses.length;
+
+    const image = template.querySelector(`#game-image`);
+    image.setAttribute("blur", STARTING_BLUR - (6 * state.store.guesses.length));
+
     template.querySelector("#guessesRemaining").textContent = remaining + " guesses remaining";
 }
