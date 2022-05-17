@@ -26,6 +26,9 @@ template.addEventListener("active", () => {
         return;
     }
 
+    const resultImage = template.querySelector(`#result-image`);
+    resultImage.setAttribute("src", `../../../content/images/${state.getCurrentAnswerPictureTitle()}`);
+
     // Set the results lines
     template.querySelector("#resultLine1").textContent = state.getCurrentAnswer();
     template.querySelector("#resultLine2").textContent = state.isSolved()
