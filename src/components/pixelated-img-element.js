@@ -25,17 +25,24 @@ export class PixelatedImage extends HTMLElement {
                         if (err) {
                             return;
                         }
-                        let blurFactor = Number(pixelatedElement.getAttribute("blur"));
-                        if (blurFactor > 0) {
-                            StackBlur.imageDataRGBA(pixels, 0, 0, pixels.width, pixels.height, blurFactor);
-                        }
 
+                        // create canvas according to pixel data
                         const canvas = document.createElement('canvas');
                         canvas.width = pixels.width;
                         canvas.height = pixels.height;
                         const context = canvas.getContext('2d');
 
-                        context.putImageData(pixels, 0, 0);
+                        // create copy of pixels to keep source pixels intact
+                        var blurredImageData = context.createImageData(pixels.width, pixels.height);
+                        blurredImageData.data.set(pixels.data.slice());
+
+                        // blur the pixels copy
+                        let blurFactor = Number(pixelatedElement.getAttribute("blur"));
+                        if (blurFactor > 0) {
+                            StackBlur.imageDataRGBA(blurredImageData, 0, 0, blurredImageData.width, blurredImageData.height, blurFactor);
+                        }
+
+                        context.putImageData(blurredImageData, 0, 0);
                         image.src = canvas.toDataURL();
                     });  
                 }

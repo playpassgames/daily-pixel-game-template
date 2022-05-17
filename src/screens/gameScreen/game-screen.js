@@ -58,7 +58,7 @@ function updatePlayingScreen () {
     const remaining = state.attempts - state.store.guesses.length;
 
     const image = template.querySelector(`#game-image`);
-    image.setAttribute("blur", STARTING_BLUR - (6 * state.store.guesses.length));
+    image.setAttribute("blur", STARTING_BLUR - (7 * state.store.guesses.length));
 
     template.querySelector("#guessesRemaining").textContent = remaining + " guesses remaining";
 }
