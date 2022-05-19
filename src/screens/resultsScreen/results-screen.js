@@ -1,5 +1,5 @@
 import * as playpass from "playpass";
-import { showScreen } from "../../boilerplate/screens";
+import {showScreen} from "../../boilerplate/screens";
 import * as timer from "../../boilerplate/timer";
 import state from "../../state";
 
@@ -11,7 +11,7 @@ function share() {
 
     // Share some text along with our link
     playpass.share({
-        text: `🏙️ Daily City #${state.store.day.toString()} ${emojis} ${link}`,
+        text: `🏙️ Daily Landmark #${state.store.day.toString()} ${emojis} ${link}`,
     });
 }
 
@@ -27,7 +27,7 @@ template.addEventListener("active", () => {
     }
 
     const resultImage = template.querySelector(`#result-image`);
-    resultImage.setAttribute("src", `../../../content/images/${state.getCurrentAnswerPictureTitle()}`);
+    resultImage.setAttribute("src", new URL(`../../../content/images/${state.getCurrentAnswerPictureTitle()}`, import.meta.url).href);
 
     // Set the results lines
     template.querySelector("#resultLine1").textContent = state.getCurrentAnswer();

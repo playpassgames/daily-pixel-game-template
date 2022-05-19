@@ -1,9 +1,9 @@
 import * as playpass from "playpass";
-import { State } from "./boilerplate/state";
+import {State} from "./boilerplate/state";
 import UserModel from "./models/userModel";
 import DailyModel from "./models/dailyModel";
 
-import { choices } from "../content/autocomplete.json";
+import {choices} from "../content/autocomplete.json";
 
 const MAX_ATTEMPTS = 5;
 
@@ -11,13 +11,13 @@ const state = new State(
     "daily",
     new UserModel(MAX_ATTEMPTS),
     new DailyModel(Date.parse("2022-04-21T12:00:00")),
-); 
+);
 
 export default {
     store: null,
     currentGuess: "",
     correctAnswer: null,
-    
+
     async init() {
         this.store = await state.loadObject();
         this.correctAnswer = choices[this.store.day % choices.length];
