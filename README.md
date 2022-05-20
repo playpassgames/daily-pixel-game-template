@@ -2,7 +2,7 @@
 
 This is an example of how to use the Playpass SDK to build a simple daily level game.
 
-Preview: https://daily-landmarks.playpass.games
+Preview: https://daily-landmark-template.playpass.games
 
 ## Setup
 
