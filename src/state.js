@@ -22,18 +22,23 @@ export default {
         this.store = await state.loadObject();
         this.correctAnswer = choices[this.store.day % choices.length];
     },
+
     get attempts() {
         return MAX_ATTEMPTS;
     },
+
     isSolved() {
         return this.store.guesses[this.store.guesses.length - 1]?.toUpperCase() === this.getCurrentAnswer().toUpperCase();
     },
+
     isDone() {
         return this.store.guesses.length >= this.attempts || this.isSolved();
     },
+
     getCurrentAnswerPictureTitle() {
         return this.store.day % choices.length + '.jpg';
     },
+
     getCurrentAnswer() {
         const word = this.correctAnswer;
         if (!word) {
@@ -41,6 +46,7 @@ export default {
         }
         return word;
     },
+
     submit(currentGuess) {
         this.store.guesses.push(currentGuess);
 
@@ -50,15 +56,18 @@ export default {
 
         this.save();
     },
+
     async login() {
         if (await playpass.account.login()) {
             document.body.classList.add("isLoggedIn");
         }
     },
+
     async logout() {
         playpass.account.logout();
         document.body.classList.remove("isLoggedIn");
     },
+
     save() {
         state.saveObject(this.store);
     }
