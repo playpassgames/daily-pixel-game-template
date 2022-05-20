@@ -1,4 +1,4 @@
-import { showScreen } from "../../boilerplate/screens";
+import {showScreen} from "../../boilerplate/screens";
 import state from "../../state";
 
 function back() {

@@ -1,8 +1,8 @@
 import * as playpass from "playpass";
-import { asyncHandler, showScreen } from "../../boilerplate/screens";
+import {asyncHandler, showScreen} from "../../boilerplate/screens";
 import state from "../../state";
 
-import { choices } from "../../../content/autocomplete.json";
+import {choices} from "../../../content/autocomplete.json";
 
 const STARTING_BLUR = 40;
 const template = document.querySelector("#game-screen");
@@ -14,10 +14,10 @@ template.addEventListener(
         if (!sawTutorial) {
             playpass.storage.set("sawTutorial", true);
             showScreen("#help-screen");
-        }        
-        
+        }
+
         const pixelImage = template.querySelector(`#game-image`);
-        pixelImage.setAttribute("src", `../../../content/images/${state.getCurrentAnswerPictureTitle()}`);
+        pixelImage.setAttribute("src", new URL(`../../../content/images/${state.getCurrentAnswerPictureTitle()}`, import.meta.url).href);
 
         const guessInput = template.querySelector("auto-complete");
         guessInput.choices = choices;
@@ -26,7 +26,7 @@ template.addEventListener(
             event.preventDefault();
 
             const guess = guessInput.value?.trim();
-            
+
             // ignore empty forms
             if (!guess) {
                 return;
@@ -52,7 +52,7 @@ template.addEventListener(
     }),
 );
 
-function updatePlayingScreen () {
+function updatePlayingScreen() {
     template.querySelector(`#guesses`).innerHTML = "";
 
     const remaining = state.attempts - state.store.guesses.length;
