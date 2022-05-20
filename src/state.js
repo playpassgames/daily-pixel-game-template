@@ -35,8 +35,13 @@ export default {
         return this.store.guesses.length >= this.attempts || this.isSolved();
     },
 
-    getCurrentAnswerPictureTitle() {
-        return this.store.day % choices.length + '.jpg';
+    getCurrentAnswerImageFile() {
+        const slug = this.getCurrentAnswer()
+            .replace(/[^A-Za-z0-9]/g, "-") // Replace non-alpha with hyphens
+            .replace(/-+/g, "-") // Reduce repeat runs of hyphens
+            .replace(/(^-|-$)/g, "") // Trim leading and trailing hyphens
+            .toLowerCase();
+        return slug + '.jpg';
     },
 
     getCurrentAnswer() {

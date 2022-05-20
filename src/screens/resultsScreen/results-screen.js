@@ -27,7 +27,7 @@ template.addEventListener("active", () => {
     }
 
     const resultImage = template.querySelector(`#result-image`);
-    resultImage.setAttribute("src", new URL(`../../../content/images/${state.getCurrentAnswerPictureTitle()}`, import.meta.url).href);
+    resultImage.setAttribute("src", new URL(`../../../content/images/${state.getCurrentAnswerImageFile()}`, import.meta.url).href);
 
     // Set the results lines
     template.querySelector("#resultLine1").textContent = state.getCurrentAnswer();
