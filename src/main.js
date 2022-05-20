@@ -50,7 +50,7 @@ function onSettingsClick () {
 (async function () {
     // Initialize the Playpass SDK
     await playpass.init({
-        gameId: "a315a5fc-f6ad-4be2-8fda-8944c708164a", // Do not edit!
+        gameId: "YOUR_GAME_ID", // Do not edit!
     });
 
     await state.init();
