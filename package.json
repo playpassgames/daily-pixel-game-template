@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "image-pixels": "^2.2.2",
-    "playpass": "^1.3.0",
+    "playpass": "^1.3.1",
     "stackblur-canvas": "^2.5.0"
   },
   "devDependencies": {
